@@ -44,3 +44,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Ignore setup generated files and logs
+data/setup*
+data/update_log.json

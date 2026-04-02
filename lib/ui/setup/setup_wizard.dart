@@ -8,6 +8,7 @@ import 'package:polaris/models/models.dart';
 enum MatchType { exact, partial, none }
 
 const _createCustomSystemSentinel = '__create_custom_system__';
+const _createCustomEmulatorSentinel = '__create_custom_emulator__';
 
 class FolderAssignment {
   final String path;
@@ -865,81 +866,88 @@ class _SetupWizardState extends State<SetupWizard> {
                       subtitle: Text(s.id),
                       trailing: FilledButton(
                         onPressed: () async {
-                          final emu =
-                              await showModalBottomSheet<EmulatorModel?>(
-                                context: context,
-                                isScrollControlled: true,
-                                builder: (ctx2) {
-                                  final q = TextEditingController();
-                                  var filtered = _emulators;
-                                  return StatefulBuilder(
-                                    builder: (c2, setInner) {
-                                      void applyFilter(String qv) => setInner(
-                                        () => filtered = _emulators
-                                            .where(
-                                              (e) => e.name
-                                                  .toLowerCase()
-                                                  .contains(qv.toLowerCase()),
-                                            )
-                                            .toList(),
-                                      );
+                          final emuResult = await showModalBottomSheet<Object?>(
+                            context: context,
+                            isScrollControlled: true,
+                            builder: (ctx2) {
+                              final q = TextEditingController();
+                              final allowed = _emulators
+                                  .where(
+                                    (e) => e.supportedSystems.contains(s.id),
+                                  )
+                                  .toList();
+                              var filtered = List<EmulatorModel>.from(allowed);
+                              return StatefulBuilder(
+                                builder: (c2, setInner) {
+                                  void applyFilter(String qv) => setInner(
+                                    () => filtered = allowed
+                                        .where(
+                                          (e) => e.name.toLowerCase().contains(
+                                            qv.toLowerCase(),
+                                          ),
+                                        )
+                                        .toList(),
+                                  );
 
-                                      return Padding(
-                                        padding: EdgeInsets.only(
-                                          bottom: MediaQuery.of(
+                                  return Padding(
+                                    padding: EdgeInsets.only(
+                                      bottom: MediaQuery.of(
+                                        ctx2,
+                                      ).viewInsets.bottom,
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(12),
+                                          child: TextField(
+                                            controller: q,
+                                            decoration: const InputDecoration(
+                                              hintText: 'Search emulator...',
+                                            ),
+                                            onChanged: applyFilter,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 300,
+                                          child: ListView.builder(
+                                            itemCount: filtered.length,
+                                            itemBuilder: (c, i) => ListTile(
+                                              title: Text(filtered[i].name),
+                                              onTap: () => Navigator.of(
+                                                ctx2,
+                                              ).pop(filtered[i]),
+                                            ),
+                                          ),
+                                        ),
+                                        ListTile(
+                                          leading: const Icon(Icons.add),
+                                          title: const Text(
+                                            'Create custom emulator',
+                                          ),
+                                          onTap: () => Navigator.of(
                                             ctx2,
-                                          ).viewInsets.bottom,
+                                          ).pop(_createCustomEmulatorSentinel),
                                         ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.all(12),
-                                              child: TextField(
-                                                controller: q,
-                                                decoration:
-                                                    const InputDecoration(
-                                                      hintText:
-                                                          'Search emulator...',
-                                                    ),
-                                                onChanged: applyFilter,
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 300,
-                                              child: ListView.builder(
-                                                itemCount: filtered.length,
-                                                itemBuilder: (c, i) => ListTile(
-                                                  title: Text(filtered[i].name),
-                                                  onTap: () => Navigator.of(
-                                                    ctx2,
-                                                  ).pop(filtered[i]),
-                                                ),
-                                              ),
-                                            ),
-                                            ListTile(
-                                              leading: const Icon(Icons.add),
-                                              title: const Text(
-                                                'Create custom emulator',
-                                              ),
-                                              onTap: () =>
-                                                  Navigator.of(ctx2).pop(null),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
+                                      ],
+                                    ),
                                   );
                                 },
                               );
-                          if (emu != null) {
-                            setState(() => _emuSelections[s.id] = emu);
-                          } else {
+                            },
+                          );
+
+                          if (emuResult == null) {
+                            // dismissed by tapping outside or otherwise cancelled; do nothing
+                          } else if (emuResult ==
+                              _createCustomEmulatorSentinel) {
                             if (!mounted) return;
                             final created = await _createCustomEmulator(s);
                             if (created != null) {
                               setState(() => _emuSelections[s.id] = created);
                             }
+                          } else if (emuResult is EmulatorModel) {
+                            setState(() => _emuSelections[s.id] = emuResult);
                           }
                         },
                         child: Text(
