@@ -1,0 +1,1152 @@
+{
+  "revision": 1,
+  "emulators": [
+    {
+      "name": "3dSen",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-id={inject}"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "nes"
+      ]
+    },
+    {
+      "name": "A7800",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-rompath",
+          "{gamedir}"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "atari7800"
+      ]
+    },
+    {
+      "name": "ACE-DL",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "amstradcpc"
+      ]
+    },
+    {
+      "name": "Altirra",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "{inject}"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "atari5200",
+        "atari800",
+        "atarixe"
+      ]
+    },
+    {
+      "name": "Arcade Flash Web",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-fullscreen",
+          "-source:"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "flash"
+      ]
+    },
+    {
+      "name": "ares",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "--fullscreen",
+          "--system",
+          "{system}"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "atari2600",
+        "colecovision",
+        "fds",
+        "gamegear",
+        "genesis",
+        "mastersystem",
+        "megacd",
+        "msx1",
+        "msx2",
+        "n64",
+        "nes",
+        "ngp",
+        "ngpc",
+        "pcengine",
+        "sega32x",
+        "segacd",
+        "sg-1000",
+        "snes",
+        "wonderswan",
+        "wonderswancolor"
+      ]
+    },
+    {
+      "name": "Atari800",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "atari5200",
+        "atari800",
+        "atarixe"
+      ]
+    },
+    {
+      "name": "Azahar",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "n3ds"
+      ]
+    },
+    {
+      "name": "BasiliskII",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "--nogui",
+          "true"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "macintosh"
+      ]
+    },
+    {
+      "name": "BigPEmu",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "atarijaguar",
+        "atarijaguarcd"
+      ]
+    },
+    {
+      "name": "BlastEm",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-m",
+          "gen"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "genesis"
+      ]
+    },
+    {
+      "name": "Cemu",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-f",
+          "-g"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "wiiu"
+      ]
+    },
+    {
+      "name": "ColEm",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "{inject}"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "colecovision"
+      ]
+    },
+    {
+      "name": "CPCEMU",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "amstradcpc"
+      ]
+    },
+    {
+      "name": "Cxbx-Reloaded",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "xbox"
+      ]
+    },
+    {
+      "name": "Demul",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-run=dc",
+          "-image="
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "dreamcast",
+        "naomi",
+        "naomi2"
+      ]
+    },
+    {
+      "name": "Dolphin",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-b",
+          "-e"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "gc",
+        "wii",
+        "triforce"
+      ]
+    },
+    {
+      "name": "DOSBox (and forks)",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "dos"
+      ]
+    },
+    {
+      "name": "DREAMM",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "."
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "dos",
+        "scummvm"
+      ]
+    },
+    {
+      "name": "DuckStation",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-fullscreen",
+          "--"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "psx"
+      ]
+    },
+    {
+      "name": "EKA2L1",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "ngage",
+        "symbian"
+      ]
+    },
+    {
+      "name": "FinalBurn Neo",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "arcade",
+        "neogeo",
+        "neogeocd"
+      ]
+    },
+    {
+      "name": "Flycast",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "arcade",
+        "dreamcast",
+        "naomi",
+        "naomi2"
+      ]
+    },
+    {
+      "name": "Flycast Dojo",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "arcade",
+        "dreamcast",
+        "naomi",
+        "naomi2"
+      ]
+    },
+    {
+      "name": "FS-UAE",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "amiga",
+        "cdtv"
+      ]
+    },
+    {
+      "name": "Fuse",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "zxspectrum"
+      ]
+    },
+    {
+      "name": "Gopher2600",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "atari2600"
+      ]
+    },
+    {
+      "name": "Hatari",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "atarist"
+      ]
+    },
+    {
+      "name": "izApple2",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "apple2"
+      ]
+    },
+    {
+      "name": "jGenesis",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "--file-path"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "gamegear",
+        "genesis",
+        "mastersystem",
+        "megacd",
+        "nes",
+        "segacd"
+      ]
+    },
+    {
+      "name": "Kronos",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "saturn"
+      ]
+    },
+    {
+      "name": "M2Emulator",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "arcade"
+      ]
+    },
+    {
+      "name": "MAME",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-rompath",
+          "{gamedir};{rompath}"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "amstradcpc",
+        "apple2",
+        "apple2gs",
+        "arcade",
+        "atari7800",
+        "atarijaguar",
+        "gameandwatch",
+        "intellivision",
+        "macintosh",
+        "neogeo",
+        "neogeocd",
+        "x68000"
+      ]
+    },
+    {
+      "name": "Mednafen",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-force_module",
+          "{module}"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "apple2",
+        "atarilynx",
+        "fds",
+        "gamegear",
+        "genesis",
+        "mastersystem",
+        "nes",
+        "ngp",
+        "ngpc",
+        "pcengine",
+        "pcfx",
+        "saturn",
+        "virtualboy",
+        "wonderswan",
+        "wonderswancolor"
+      ]
+    },
+    {
+      "name": "melonDS",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "nds"
+      ]
+    },
+    {
+      "name": "Mesen",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "--fullscreen"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "colecovision",
+        "fds",
+        "gamegear",
+        "mastersystem",
+        "nes",
+        "pcengine",
+        "sg-1000",
+        "wonderswan",
+        "wonderswancolor"
+      ]
+    },
+    {
+      "name": "MFME",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "arcade"
+      ]
+    },
+    {
+      "name": "mGBA",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-f"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "gb",
+        "gba",
+        "gbc"
+      ]
+    },
+    {
+      "name": "Mupen64Plus",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "--fullscreen"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "n64"
+      ]
+    },
+    {
+      "name": "NooDS",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "nds"
+      ]
+    },
+    {
+      "name": "openMSX",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "colecovision",
+        "msx1",
+        "msx2",
+        "msxturbor"
+      ]
+    },
+    {
+      "name": "PCSX2",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "ps2"
+      ]
+    },
+    {
+      "name": "Play!",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "ps2"
+      ]
+    },
+    {
+      "name": "PPSSPP",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "psp"
+      ]
+    },
+    {
+      "name": "PrimeHack",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-b",
+          "-e"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "gc",
+        "wii"
+      ]
+    },
+    {
+      "name": "Project64",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "n64"
+      ]
+    },
+    {
+      "name": "puNES",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-u",
+          "yes"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "nes"
+      ]
+    },
+    {
+      "name": "QUASI88",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "pc88"
+      ]
+    },
+    {
+      "name": "Redream",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "dreamcast"
+      ]
+    },
+    {
+      "name": "RetroArch",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-L",
+          "{core}"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "3do",
+        "amiga",
+        "amstradcpc",
+        "apple2",
+        "apple2gs",
+        "arcade",
+        "atari2600",
+        "atari5200",
+        "atari7800",
+        "atari800",
+        "atarijaguar",
+        "atarilynx",
+        "atarist",
+        "atarixe",
+        "c64",
+        "cdimono1",
+        "cdtv",
+        "colecovision",
+        "dos",
+        "dreamcast",
+        "fds",
+        "gameandwatch",
+        "gamegear",
+        "gc",
+        "genesis",
+        "intellivision",
+        "mastersystem",
+        "megacd",
+        "msx1",
+        "msx2",
+        "msxturbor",
+        "n64",
+        "naomi",
+        "naomi2",
+        "nds",
+        "neogeo",
+        "neogeocd",
+        "nes",
+        "ngp",
+        "ngpc",
+        "pc88",
+        "pc98",
+        "pcengine",
+        "pcfx",
+        "pokemini",
+        "saturn",
+        "scummvm",
+        "sega32x",
+        "segacd",
+        "sg-1000",
+        "vic20",
+        "virtualboy",
+        "wii",
+        "wonderswan",
+        "wonderswancolor",
+        "x68000",
+        "zxspectrum"
+      ]
+    },
+    {
+      "name": "Rosalie's Mupen GUI",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "--fullscreen"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "n64"
+      ]
+    },
+    {
+      "name": "Ruffle",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "--fullscreen"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "flash"
+      ]
+    },
+    {
+      "name": "Ryujinx",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "switch"
+      ]
+    },
+    {
+      "name": "ScummVM",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "--fullscreen"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "scummvm"
+      ]
+    },
+    {
+      "name": "shadPS4",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "ps4"
+      ]
+    },
+    {
+      "name": "SheepShaver",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "macintosh"
+      ]
+    },
+    {
+      "name": "simple64",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "n64"
+      ]
+    },
+    {
+      "name": "SkyEmu",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "nds"
+      ]
+    },
+    {
+      "name": "SSF",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "saturn"
+      ]
+    },
+    {
+      "name": "Stella",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "atari2600"
+      ]
+    },
+    {
+      "name": "Supermodel",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "arcade"
+      ]
+    },
+    {
+      "name": "Supermodel Dojo",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "arcade"
+      ]
+    },
+    {
+      "name": "Dolphin Triforce (old builds)",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-b",
+          "-e"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "triforce"
+      ]
+    },
+    {
+      "name": "VICE x64sc",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "c64"
+      ]
+    },
+    {
+      "name": "VICE xvic",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "vic20"
+      ]
+    },
+    {
+      "name": "Vita3K",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-F"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "psvita"
+      ]
+    },
+    {
+      "name": "xemu",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [
+          "-dvd_path"
+        ],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "xbox"
+      ]
+    },
+    {
+      "name": "Xenia",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "xbox360"
+      ]
+    },
+    {
+      "name": "XM6 Pro-68k",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "x68000"
+      ]
+    },
+    {
+      "name": "XM6 TypeG",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "x68000"
+      ]
+    },
+    {
+      "name": "YabaSanshiro 2",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "saturn"
+      ]
+    },
+    {
+      "name": "Ymir",
+      "executable": null,
+      "updaterExecutable": null,
+      "launchParams": {
+        "beforeRom": [],
+        "afterRom": [],
+        "envVars": {}
+      },
+      "supportedSystems": [
+        "saturn"
+      ]
+    }
+  ]
+}

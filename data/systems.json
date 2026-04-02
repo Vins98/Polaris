@@ -1,0 +1,1837 @@
+{
+  "revision": 1,
+  "systems": [
+    {
+      "id": "3do",
+      "aliases": [
+        "3DO",
+        "3DO Interactive Multiplayer"
+      ],
+      "name": "3DO Interactive Multiplayer",
+      "description": "A 32-bit home video game console developed by The 3DO Company, featuring CD-ROM based games and multimedia capabilities.",
+      "manufacturer": "The 3DO Company",
+      "year": 1993,
+      "romFormats": [
+        ".bin",
+        ".chd",
+        ".cue",
+        ".iso",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "amiga",
+      "aliases": [
+        "Amiga",
+        "Commodore Amiga"
+      ],
+      "name": "Commodore Amiga",
+      "description": "A family of personal computers by Commodore known for advanced graphics and sound capabilities, popular in Europe during the late 1980s.",
+      "manufacturer": "Commodore",
+      "year": 1985,
+      "romFormats": [
+        ".adf",
+        ".adz",
+        ".ccd",
+        ".chd",
+        ".cue",
+        ".dms",
+        ".fdi",
+        ".hdf",
+        ".hdz",
+        ".ipf",
+        ".iso",
+        ".lha",
+        ".m3u",
+        ".mds",
+        ".nrg",
+        ".rp9",
+        ".uae",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "amstradcpc",
+      "aliases": [
+        "Amstrad CPC",
+        "CPC"
+      ],
+      "name": "Amstrad CPC",
+      "description": "A series of 8-bit home computers popular in the UK and Europe, known for their built-in cassette or disk drives.",
+      "manufacturer": "Amstrad",
+      "year": 1984,
+      "romFormats": [
+        ".cdt",
+        ".cpr",
+        ".dsk",
+        ".kcr",
+        ".m3u",
+        ".sna",
+        ".tap",
+        ".tar",
+        ".voc",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "apple2",
+      "aliases": [
+        "Apple II",
+        "Apple ][",
+        "Apple2"
+      ],
+      "name": "Apple II",
+      "description": "Apple's influential 8-bit personal computer series, one of the first mass-produced microcomputers and a staple in American schools.",
+      "manufacturer": "Apple",
+      "year": 1977,
+      "romFormats": [
+        ".do",
+        ".dsk",
+        ".nib",
+        ".po"
+      ]
+    },
+    {
+      "id": "apple2gs",
+      "aliases": [
+        "Apple IIGS",
+        "Apple II GS",
+        "IIGS"
+      ],
+      "name": "Apple IIGS",
+      "description": "The enhanced Apple II model featuring a 16-bit processor and improved graphics and sound, bridging the gap to the Macintosh era.",
+      "manufacturer": "Apple",
+      "year": 1986,
+      "romFormats": [
+        ".2mg",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "arcade",
+      "aliases": [
+        "Arcade",
+        "Arcade Cabinet",
+        "Arcade Machine"
+      ],
+      "name": "Arcade",
+      "description": "Coin-operated arcade game machines, covering hardware from the golden age of arcade gaming through modern systems.",
+      "manufacturer": "Various",
+      "year": null,
+      "romFormats": [
+        ".bat",
+        ".cmd",
+        ".gam",
+        ".lnk",
+        ".neo",
+        ".7z",
+        ".zip",
+        ".chd"
+      ]
+    },
+    {
+      "id": "atari2600",
+      "aliases": [
+        "Atari 2600",
+        "VCS",
+        "Atari VCS"
+      ],
+      "name": "Atari 2600",
+      "description": "Atari's iconic cartridge-based home console that popularized the concept of bringing arcade games into the living room.",
+      "manufacturer": "Atari",
+      "year": 1977,
+      "romFormats": [
+        ".a26",
+        ".bin",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "atari5200",
+      "aliases": [
+        "Atari 5200"
+      ],
+      "name": "Atari 5200",
+      "description": "Atari's second-generation home console designed to compete with the Mattel Intellivision and Coleco ColecoVision.",
+      "manufacturer": "Atari",
+      "year": 1982,
+      "romFormats": [
+        ".a52",
+        ".atr",
+        ".atx",
+        ".bin",
+        ".car",
+        ".cas",
+        ".cdm",
+        ".rom",
+        ".xex",
+        ".xfd",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "atari7800",
+      "aliases": [
+        "Atari 7800",
+        "ProSystem"
+      ],
+      "name": "Atari 7800 ProSystem",
+      "description": "Atari's backward-compatible 8-bit console, compatible with Atari 2600 cartridges and featuring improved graphics.",
+      "manufacturer": "Atari",
+      "year": 1986,
+      "romFormats": [
+        ".a78",
+        ".bin",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "atari800",
+      "aliases": [
+        "Atari 800",
+        "Atari 8-bit",
+        "Atari XL/XE"
+      ],
+      "name": "Atari 800",
+      "description": "Atari's 8-bit home computer series, offering strong graphics and sound for its era and a large software library.",
+      "manufacturer": "Atari",
+      "year": 1979,
+      "romFormats": [
+        ".a52",
+        ".atr",
+        ".atx",
+        ".bin",
+        ".car",
+        ".cas",
+        ".cdm",
+        ".rom",
+        ".xex",
+        ".xfd",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "atarijaguar",
+      "aliases": [
+        "Atari Jaguar",
+        "Jaguar"
+      ],
+      "name": "Atari Jaguar",
+      "description": "Atari's 64-bit home game console, one of the last consoles produced by Atari before the company exited the hardware market.",
+      "manufacturer": "Atari",
+      "year": 1993,
+      "romFormats": [
+        ".abs",
+        ".bin",
+        ".cdi",
+        ".cof",
+        ".cue",
+        ".j64",
+        ".jag",
+        ".prg",
+        ".rom",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "atarijaguarcd",
+      "aliases": [
+        "Atari Jaguar CD",
+        "Jaguar CD"
+      ],
+      "name": "Atari Jaguar CD",
+      "description": "The CD-ROM add-on for the Atari Jaguar console, expanding the game library with FMV and larger titles.",
+      "manufacturer": "Atari",
+      "year": 1995,
+      "romFormats": [
+        ".abs",
+        ".bin",
+        ".cdi",
+        ".cof",
+        ".cue",
+        ".j64",
+        ".jag",
+        ".prg",
+        ".rom",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "atarilynx",
+      "aliases": [
+        "Atari Lynx",
+        "Lynx"
+      ],
+      "name": "Atari Lynx",
+      "description": "Atari's color handheld game console, the first handheld with a color LCD screen.",
+      "manufacturer": "Atari",
+      "year": 1989,
+      "romFormats": [
+        ".lnx",
+        ".o",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "atarist",
+      "aliases": [
+        "Atari ST",
+        "ST"
+      ],
+      "name": "Atari ST",
+      "description": "Atari's 16-bit personal computer, popular among musicians for its built-in MIDI ports and in Europe as a home computer.",
+      "manufacturer": "Atari",
+      "year": 1985,
+      "romFormats": [
+        ".st",
+        ".msa",
+        ".stx",
+        ".dim",
+        ".ipf",
+        ".m3u",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "atarixe",
+      "aliases": [
+        "Atari XE",
+        "Atari XE Series",
+        "XE"
+      ],
+      "name": "Atari XE",
+      "description": "The XE series of Atari 8-bit computers, designed as a cost-reduced continuation of the Atari 800XL.",
+      "manufacturer": "Atari",
+      "year": 1987,
+      "romFormats": [
+        ".a52",
+        ".atr",
+        ".atx",
+        ".bin",
+        ".car",
+        ".cas",
+        ".cdm",
+        ".xex",
+        ".xfd",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "c64",
+      "aliases": [
+        "Commodore 64",
+        "C64",
+        "C-64"
+      ],
+      "name": "Commodore 64",
+      "description": "Commodore's iconic 8-bit home computer, the best-selling single computer model of all time with a vast game library.",
+      "manufacturer": "Commodore",
+      "year": 1982,
+      "romFormats": [
+        ".bin",
+        ".cmd",
+        ".crt",
+        ".d2m",
+        ".d4m",
+        ".d64",
+        ".d6z",
+        ".d71",
+        ".d7z",
+        ".d80",
+        ".d81",
+        ".d82",
+        ".d8z",
+        ".g41",
+        ".g4z",
+        ".g64",
+        ".g6z",
+        ".gz",
+        ".lnx",
+        ".m3u",
+        ".nbz",
+        ".nib",
+        ".p00",
+        ".prg",
+        ".t64",
+        ".tap",
+        ".vfl",
+        ".vsf",
+        ".x64",
+        ".x6z",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "cdimono1",
+      "aliases": [
+        "Philips CD-i",
+        "CD-i",
+        "CDI"
+      ],
+      "name": "Philips CD-i",
+      "description": "Philips' CD-i multimedia player and gaming console, known for its FMV-based games and multimedia capabilities.",
+      "manufacturer": "Philips",
+      "year": 1991,
+      "romFormats": [
+        ".chd",
+        ".cue",
+        ".iso"
+      ]
+    },
+    {
+      "id": "cdtv",
+      "aliases": [
+        "Commodore CDTV",
+        "CDTV"
+      ],
+      "name": "Commodore CDTV",
+      "description": "Commodore's CD-ROM multimedia player based on the Amiga platform, targeting the home entertainment market.",
+      "manufacturer": "Commodore",
+      "year": 1991,
+      "romFormats": [
+        ".adf",
+        ".adz",
+        ".ccd",
+        ".chd",
+        ".cue",
+        ".dms",
+        ".fdi",
+        ".hdf",
+        ".hdz",
+        ".ipf",
+        ".iso",
+        ".lha",
+        ".m3u",
+        ".mds",
+        ".nrg",
+        ".rp9",
+        ".uae",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "colecovision",
+      "aliases": [
+        "ColecoVision",
+        "Coleco Vision"
+      ],
+      "name": "Coleco ColecoVision",
+      "description": "Coleco's second-generation home console known for near-arcade-quality ports and an add-on expansion module.",
+      "manufacturer": "Coleco",
+      "year": 1982,
+      "romFormats": [
+        ".bin",
+        ".cas",
+        ".col",
+        ".cv",
+        ".dsk",
+        ".m3u",
+        ".mx1",
+        ".mx2",
+        ".ri",
+        ".rom",
+        ".sc",
+        ".sg",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "dos",
+      "aliases": [
+        "DOS",
+        "MS-DOS",
+        "PC DOS",
+        "IBM PC DOS"
+      ],
+      "name": "DOS (PC)",
+      "description": "MS-DOS, Microsoft's disk operating system that powered IBM-compatible PCs through the 1980s and early 1990s.",
+      "manufacturer": "Microsoft",
+      "year": 1981,
+      "romFormats": [
+        ".bat",
+        ".com",
+        ".conf",
+        ".cue",
+        ".dosz",
+        ".exe",
+        ".img",
+        ".iso",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "dreamcast",
+      "aliases": [
+        "Dreamcast",
+        "Sega Dreamcast",
+        "DC"
+      ],
+      "name": "Sega Dreamcast",
+      "description": "Sega's final home console, featuring online gaming capabilities and a library of beloved titles.",
+      "manufacturer": "Sega",
+      "year": 1998,
+      "romFormats": [
+        ".cdi",
+        ".chd",
+        ".cue",
+        ".dat",
+        ".elf",
+        ".gdi",
+        ".iso",
+        ".lst",
+        ".m3u",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "fds",
+      "aliases": [
+        "Famicom Disk System",
+        "Nintendo FDS",
+        "FDS"
+      ],
+      "name": "Nintendo Famicom Disk System",
+      "description": "The Famicom Disk System, Nintendo's floppy disk add-on for the Famicom offering rewritable game storage.",
+      "manufacturer": "Nintendo",
+      "year": 1986,
+      "romFormats": [
+        ".nes",
+        ".fds",
+        ".unf",
+        ".unif",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "flash",
+      "aliases": [
+        "Flash",
+        "Adobe Flash",
+        "SWF"
+      ],
+      "name": "Adobe Flash",
+      "description": "Adobe Flash, a multimedia platform used to create animations, games, and interactive web content.",
+      "manufacturer": "Adobe",
+      "year": 1996,
+      "romFormats": [
+        ".ruf",
+        ".swf"
+      ]
+    },
+    {
+      "id": "gameandwatch",
+      "aliases": [
+        "Game & Watch",
+        "Game and Watch",
+        "G&W"
+      ],
+      "name": "Nintendo Game and Watch",
+      "description": "Nintendo's line of handheld electronic games, the precursor to the Game Boy and an icon of early portable gaming.",
+      "manufacturer": "Nintendo",
+      "year": 1980,
+      "romFormats": [
+        ".mgw",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "gamegear",
+      "aliases": [
+        "Game Gear",
+        "Sega Game Gear"
+      ],
+      "name": "Sega Game Gear",
+      "description": "Sega's portable gaming device, a backlit color handheld that competed directly with Nintendo's Game Boy.",
+      "manufacturer": "Sega",
+      "year": 1990,
+      "romFormats": [
+        ".68k",
+        ".bin",
+        ".bms",
+        ".chd",
+        ".col",
+        ".cue",
+        ".gen",
+        ".gg",
+        ".iso",
+        ".m3u",
+        ".md",
+        ".mdx",
+        ".rom",
+        ".sg",
+        ".sgd",
+        ".smd",
+        ".sms",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "gb",
+      "aliases": [
+        "Game Boy",
+        "Nintendo Game Boy",
+        "DMG"
+      ],
+      "name": "Nintendo Game Boy",
+      "description": "Nintendo's original Game Boy, the monochrome handheld that dominated portable gaming through the 1990s.",
+      "manufacturer": "Nintendo",
+      "year": 1989,
+      "romFormats": [
+        ".bs",
+        ".cgb",
+        ".dmg",
+        ".gb",
+        ".gbc",
+        ".sgb",
+        ".sfc",
+        ".smc",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "gba",
+      "aliases": [
+        "Game Boy Advance",
+        "GBA",
+        "Nintendo GBA"
+      ],
+      "name": "Nintendo Game Boy Advance",
+      "description": "Nintendo's 32-bit handheld console, offering home console quality games in a portable format.",
+      "manufacturer": "Nintendo",
+      "year": 2001,
+      "romFormats": [
+        ".agb",
+        ".bin",
+        ".cgb",
+        ".dmg",
+        ".gb",
+        ".gba",
+        ".gbc",
+        ".sgb",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "gbc",
+      "aliases": [
+        "Game Boy Color",
+        "GBC",
+        "Nintendo GBC"
+      ],
+      "name": "Nintendo Game Boy Color",
+      "description": "The Game Boy Color, Nintendo's updated handheld featuring a color screen while maintaining backward compatibility.",
+      "manufacturer": "Nintendo",
+      "year": 1998,
+      "romFormats": [
+        ".bs",
+        ".cgb",
+        ".dmg",
+        ".gb",
+        ".gbc",
+        ".sgb",
+        ".sfc",
+        ".smc",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "gc",
+      "aliases": [
+        "GameCube",
+        "Nintendo GameCube",
+        "GC",
+        "NGC"
+      ],
+      "name": "Nintendo GameCube",
+      "description": "Nintendo's GameCube, a compact 128-bit console known for its unique disc format and strong first-party titles.",
+      "manufacturer": "Nintendo",
+      "year": 2001,
+      "romFormats": [
+        ".ciso",
+        ".dff",
+        ".dol",
+        ".elf",
+        ".gcm",
+        ".gcz",
+        ".iso",
+        ".json",
+        ".m3u",
+        ".rvz",
+        ".tgc",
+        ".wad",
+        ".wbfs",
+        ".wia",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "genesis",
+      "aliases": [
+        "Genesis",
+        "Sega Genesis",
+        "Mega Drive",
+        "Sega Mega Drive"
+      ],
+      "name": "Sega Genesis / Mega Drive",
+      "description": "Sega's 16-bit home console, known as the Mega Drive outside North America, iconic for its Sonic the Hedgehog games.",
+      "manufacturer": "Sega",
+      "year": 1989,
+      "romFormats": [
+        ".32x",
+        ".68k",
+        ".bin",
+        ".bms",
+        ".chd",
+        ".cue",
+        ".gen",
+        ".gg",
+        ".iso",
+        ".m3u",
+        ".md",
+        ".mdx",
+        ".sg",
+        ".sgd",
+        ".smd",
+        ".sms",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "intellivision",
+      "aliases": [
+        "Intellivision",
+        "Mattel Intellivision"
+      ],
+      "name": "Mattel Electronics Intellivision",
+      "description": "Mattel Electronics' second-generation home console, the first serious competitor to the Atari 2600.",
+      "manufacturer": "Mattel Electronics",
+      "year": 1979,
+      "romFormats": [
+        ".bin",
+        ".int",
+        ".rom",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "laserdisc",
+      "aliases": [
+        "LaserDisc",
+        "Laserdisc Games",
+        "Daphne",
+        "Singe"
+      ],
+      "name": "LaserDisc Games",
+      "description": "LaserDisc-based arcade games, known for their full-motion video gameplay pioneered by Dragon's Lair.",
+      "manufacturer": "Various",
+      "year": null,
+      "romFormats": [
+        ".daphne",
+        ".dirksimple",
+        ".ogv",
+        ".singe",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "macintosh",
+      "aliases": [
+        "Macintosh",
+        "Apple Macintosh",
+        "Mac"
+      ],
+      "name": "Apple Macintosh",
+      "description": "Apple's iconic personal computer line featuring a graphical user interface, launched in 1984.",
+      "manufacturer": "Apple",
+      "year": 1984,
+      "romFormats": [
+        ".dsk",
+        ".game"
+      ]
+    },
+    {
+      "id": "mastersystem",
+      "aliases": [
+        "Master System",
+        "Sega Master System",
+        "SMS"
+      ],
+      "name": "Sega Master System",
+      "description": "Sega's 8-bit home console, a strong competitor to the NES in Europe and Brazil.",
+      "manufacturer": "Sega",
+      "year": 1985,
+      "romFormats": [
+        ".68k",
+        ".bin",
+        ".bms",
+        ".chd",
+        ".col",
+        ".cue",
+        ".gen",
+        ".gg",
+        ".iso",
+        ".m3u",
+        ".md",
+        ".mdx",
+        ".rom",
+        ".sg",
+        ".sgd",
+        ".smd",
+        ".sms",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "megacd",
+      "aliases": [
+        "Mega-CD",
+        "Sega CD",
+        "Sega Mega-CD",
+        "CDX"
+      ],
+      "name": "Sega Mega-CD",
+      "description": "Sega's CD-ROM add-on for the Mega Drive, expanding the platform with FMV games and enhanced audio.",
+      "manufacturer": "Sega",
+      "year": 1991,
+      "romFormats": [
+        ".68k",
+        ".bin",
+        ".bms",
+        ".chd",
+        ".cue",
+        ".gen",
+        ".gg",
+        ".iso",
+        ".m3u",
+        ".md",
+        ".mdx",
+        ".sg",
+        ".sgd",
+        ".smd",
+        ".sms",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "msx1",
+      "aliases": [
+        "MSX",
+        "MSX1",
+        "MSX-1"
+      ],
+      "name": "MSX1",
+      "description": "The original MSX standard, an 8-bit home computer platform with a vast software library.",
+      "manufacturer": "Microsoft / ASCII",
+      "year": 1983,
+      "romFormats": [
+        ".cas",
+        ".col",
+        ".di1",
+        ".di2",
+        ".dmk",
+        ".dsk",
+        ".fd1",
+        ".fd2",
+        ".m3u",
+        ".mx1",
+        ".mx2",
+        ".ogv",
+        ".ri",
+        ".rom",
+        ".sc",
+        ".sg",
+        ".wav",
+        ".xsa",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "msx2",
+      "aliases": [
+        "MSX2",
+        "MSX-2"
+      ],
+      "name": "MSX2",
+      "description": "The enhanced MSX standard featuring improved graphics modes and memory management.",
+      "manufacturer": "Microsoft / ASCII",
+      "year": 1985,
+      "romFormats": [
+        ".cas",
+        ".col",
+        ".di1",
+        ".di2",
+        ".dmk",
+        ".dsk",
+        ".fd1",
+        ".fd2",
+        ".m3u",
+        ".mx1",
+        ".mx2",
+        ".ogv",
+        ".ri",
+        ".rom",
+        ".sc",
+        ".sg",
+        ".wav",
+        ".xsa",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "msxturbor",
+      "aliases": [
+        "MSX Turbo R",
+        "MSX Turbo-R",
+        "Turbo R"
+      ],
+      "name": "MSX Turbo R",
+      "description": "The final MSX standard featuring a faster R800 processor, released only in Japan.",
+      "manufacturer": "Microsoft / ASCII",
+      "year": 1990,
+      "romFormats": [
+        ".cas",
+        ".col",
+        ".di1",
+        ".di2",
+        ".dmk",
+        ".dsk",
+        ".fd1",
+        ".fd2",
+        ".m3u",
+        ".mx1",
+        ".mx2",
+        ".ogv",
+        ".ri",
+        ".rom",
+        ".sc",
+        ".sg",
+        ".wav",
+        ".xsa",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "n3ds",
+      "aliases": [
+        "Nintendo 3DS",
+        "3DS",
+        "N3DS"
+      ],
+      "name": "Nintendo 3DS",
+      "description": "Nintendo's glasses-free 3D handheld console, the successor to the DS with a large game library.",
+      "manufacturer": "Nintendo",
+      "year": 2011,
+      "romFormats": [
+        ".3ds",
+        ".3dsx",
+        ".app",
+        ".axf",
+        ".cci",
+        ".cxi",
+        ".elf",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "n64",
+      "aliases": [
+        "Nintendo 64",
+        "N64",
+        "Ultra 64"
+      ],
+      "name": "Nintendo 64",
+      "description": "Nintendo's 64-bit cartridge-based console, home to landmark titles like Super Mario 64 and The Legend of Zelda: Ocarina of Time.",
+      "manufacturer": "Nintendo",
+      "year": 1996,
+      "romFormats": [
+        ".bin",
+        ".d64",
+        ".n64",
+        ".ndd",
+        ".u1",
+        ".v64",
+        ".z64",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "naomi",
+      "aliases": [
+        "NAOMI",
+        "Sega NAOMI"
+      ],
+      "name": "Sega NAOMI",
+      "description": "Sega's arcade board based on Dreamcast hardware, used for many of Sega's late-90s and early-2000s arcade titles.",
+      "manufacturer": "Sega",
+      "year": 1998,
+      "romFormats": [
+        ".bin",
+        ".dat",
+        ".elf",
+        ".lst",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "naomi2",
+      "aliases": [
+        "NAOMI 2",
+        "Sega NAOMI 2"
+      ],
+      "name": "Sega NAOMI 2",
+      "description": "The enhanced successor to the Sega NAOMI board, featuring improved polygon performance.",
+      "manufacturer": "Sega",
+      "year": 2000,
+      "romFormats": [
+        ".bin",
+        ".dat",
+        ".elf",
+        ".lst",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "nds",
+      "aliases": [
+        "Nintendo DS",
+        "DS",
+        "NDS"
+      ],
+      "name": "Nintendo DS",
+      "description": "Nintendo's dual-screen handheld with a touchscreen, one of the best-selling game consoles of all time.",
+      "manufacturer": "Nintendo",
+      "year": 2004,
+      "romFormats": [
+        ".app",
+        ".bin",
+        ".nds",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "neogeo",
+      "aliases": [
+        "Neo Geo",
+        "SNK Neo Geo"
+      ],
+      "name": "SNK Neo Geo",
+      "description": "SNK's high-powered arcade and home platform, famous for its premium price and exceptional fighting games.",
+      "manufacturer": "SNK",
+      "year": 1990,
+      "romFormats": [
+        ".neo",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "neogeocd",
+      "aliases": [
+        "Neo Geo CD",
+        "SNK Neo Geo CD"
+      ],
+      "name": "SNK Neo Geo CD",
+      "description": "The CD-ROM version of SNK's Neo Geo platform, offering the same arcade titles at a lower cartridge cost.",
+      "manufacturer": "SNK",
+      "year": 1994,
+      "romFormats": [
+        ".chd",
+        ".cue"
+      ]
+    },
+    {
+      "id": "nes",
+      "aliases": [
+        "NES",
+        "Nintendo Entertainment System",
+        "Famicom",
+        "Nintendo Famicom"
+      ],
+      "name": "Nintendo Entertainment System / Nintendo Family Computer",
+      "description": "Nintendo's 8-bit home console that revitalized the video game industry after the 1983 crash.",
+      "manufacturer": "Nintendo",
+      "year": 1985,
+      "romFormats": [
+        ".3dsen",
+        ".fds",
+        ".nes",
+        ".unf",
+        ".unif",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "ngage",
+      "aliases": [
+        "N-Gage",
+        "Nokia N-Gage"
+      ],
+      "name": "Nokia N-Gage",
+      "description": "Nokia's mobile phone and gaming device hybrid, attempting to combine a smartphone with a dedicated handheld.",
+      "manufacturer": "Nokia",
+      "year": 2003,
+      "romFormats": [
+        ".ngage",
+        ".zip"
+      ]
+    },
+    {
+      "id": "ngp",
+      "aliases": [
+        "Neo Geo Pocket",
+        "NGP"
+      ],
+      "name": "SNK Neo Geo Pocket",
+      "description": "SNK's Neo Geo Pocket, a monochrome handheld featuring SNK's classic fighting game franchises.",
+      "manufacturer": "SNK",
+      "year": 1998,
+      "romFormats": [
+        ".ngc",
+        ".ngp",
+        ".ngpc",
+        ".npc",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "ngpc",
+      "aliases": [
+        "Neo Geo Pocket Color",
+        "NGPC"
+      ],
+      "name": "SNK Neo Geo Pocket Color",
+      "description": "SNK's Neo Geo Pocket Color, the color upgrade to the NGP with a strong library of fighting and puzzle games.",
+      "manufacturer": "SNK",
+      "year": 1999,
+      "romFormats": [
+        ".ngc",
+        ".ngp",
+        ".ngpc",
+        ".npc",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "pc88",
+      "aliases": [
+        "PC-88",
+        "NEC PC-8800",
+        "PC8800"
+      ],
+      "name": "NEC PC-8800 Series",
+      "description": "NEC's PC-88 series of Japanese home computers, popular for RPGs and visual novels in the 1980s.",
+      "manufacturer": "NEC",
+      "year": 1981,
+      "romFormats": [
+        ".88d",
+        ".cmt",
+        ".d88",
+        ".m3u",
+        ".t88",
+        ".u88"
+      ]
+    },
+    {
+      "id": "pc98",
+      "aliases": [
+        "PC-98",
+        "NEC PC-9800",
+        "PC9800"
+      ],
+      "name": "NEC PC-9800 Series",
+      "description": "NEC's PC-98 series of Japanese computers, dominant in Japan through the 1980s and 1990s with a rich game library.",
+      "manufacturer": "NEC",
+      "year": 1982,
+      "romFormats": [
+        ".2hd",
+        ".88d",
+        ".98d",
+        ".d88",
+        ".d98",
+        ".cmd",
+        ".dup",
+        ".fdd",
+        ".fdi",
+        ".hdd",
+        ".hdi",
+        ".hdm",
+        ".hdn",
+        ".m3u",
+        ".nhd",
+        ".tfd",
+        ".thd",
+        ".xdf",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "pcengine",
+      "aliases": [
+        "PC Engine",
+        "TurboGrafx-16",
+        "TG16"
+      ],
+      "name": "NEC PC Engine",
+      "description": "NEC's PC Engine, known as TurboGrafx-16 in North America, a compact console with a strong arcade port library.",
+      "manufacturer": "NEC",
+      "year": 1987,
+      "romFormats": [
+        ".ccd",
+        ".chd",
+        ".cue",
+        ".img",
+        ".iso",
+        ".m3u",
+        ".pce",
+        ".rom",
+        ".sgx",
+        ".toc",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "pcfx",
+      "aliases": [
+        "PC-FX",
+        "NEC PC-FX"
+      ],
+      "name": "NEC PC-FX",
+      "description": "NEC's 32-bit successor to the PC Engine, released only in Japan and known for its FMV capabilities.",
+      "manufacturer": "NEC",
+      "year": 1994,
+      "romFormats": [
+        ".ccd",
+        ".chd",
+        ".cue",
+        "cue",
+        ".m3u",
+        ".toc",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "pokemini",
+      "aliases": [
+        "Pokémon Mini",
+        "Pokemon Mini",
+        "PokeMini"
+      ],
+      "name": "Nintendo Pokémon Mini",
+      "description": "Nintendo's tiny handheld game console designed exclusively for Pokémon-themed games.",
+      "manufacturer": "Nintendo",
+      "year": 2001,
+      "romFormats": [
+        ".min",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "ps2",
+      "aliases": [
+        "PlayStation 2",
+        "PS2",
+        "Sony PlayStation 2"
+      ],
+      "name": "Sony PlayStation 2",
+      "description": "Sony's PlayStation 2, the best-selling home console of all time with an enormous game library.",
+      "manufacturer": "Sony",
+      "year": 2000,
+      "romFormats": [
+        ".cue",
+        ".iso",
+        ".mdf",
+        ".chd",
+        ".cso",
+        ".zso",
+        ".gz",
+        ".elf"
+      ]
+    },
+    {
+      "id": "ps3",
+      "aliases": [
+        "PlayStation 3",
+        "PS3",
+        "Sony PlayStation 3"
+      ],
+      "name": "Sony PlayStation 3",
+      "description": "Sony's PlayStation 3, featuring Blu-ray playback, online gaming via PSN, and the CELL processor architecture.",
+      "manufacturer": "Sony",
+      "year": 2006,
+      "romFormats": [
+        ".lnk"
+      ]
+    },
+    {
+      "id": "ps4",
+      "aliases": [
+        "PlayStation 4",
+        "PS4",
+        "Sony PlayStation 4"
+      ],
+      "name": "Sony PlayStation 4",
+      "description": "Sony's PlayStation 4, a powerful eighth-generation console with a large library of modern games.",
+      "manufacturer": "Sony",
+      "year": 2013,
+      "romFormats": [
+        ".bin",
+        ".lnk",
+        ".ps4"
+      ]
+    },
+    {
+      "id": "psp",
+      "aliases": [
+        "PlayStation Portable",
+        "PSP",
+        "Sony PSP"
+      ],
+      "name": "Sony PlayStation Portable",
+      "description": "Sony's PlayStation Portable, a powerful handheld offering near-PS2 quality gaming on the go.",
+      "manufacturer": "Sony",
+      "year": 2004,
+      "romFormats": [
+        ".cso",
+        ".iso",
+        ".pbp"
+      ]
+    },
+    {
+      "id": "psvita",
+      "aliases": [
+        "PlayStation Vita",
+        "PS Vita",
+        "Vita"
+      ],
+      "name": "Sony PlayStation Vita",
+      "description": "Sony's PlayStation Vita, a handheld with dual analog sticks and an OLED screen with a strong indie game library.",
+      "manufacturer": "Sony",
+      "year": 2011,
+      "romFormats": [
+        ".psvita"
+      ]
+    },
+    {
+      "id": "psx",
+      "aliases": [
+        "PlayStation",
+        "PS1",
+        "PSX",
+        "Sony PlayStation"
+      ],
+      "name": "Sony PlayStation",
+      "description": "Sony's original PlayStation, the console that shifted gaming toward 3D polygon-based graphics and CD-ROM media.",
+      "manufacturer": "Sony",
+      "year": 1994,
+      "romFormats": [
+        ".cue",
+        ".iso"
+      ]
+    },
+    {
+      "id": "saturn",
+      "aliases": [
+        "Sega Saturn",
+        "Saturn"
+      ],
+      "name": "Sega Saturn",
+      "description": "Sega's 32-bit home console featuring a dual-CPU design and an impressive library of 2D and 3D games.",
+      "manufacturer": "Sega",
+      "year": 1994,
+      "romFormats": [
+        ".bin",
+        ".ccd",
+        ".chd",
+        ".cue",
+        ".iso",
+        ".m3u",
+        ".mds",
+        ".toc",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "scummvm",
+      "aliases": [
+        "ScummVM",
+        "SCUMMVM"
+      ],
+      "name": "ScummVM Game Engine",
+      "description": "An engine for running classic point-and-click adventure games from LucasArts, Sierra, and other publishers.",
+      "manufacturer": "ScummVM Team",
+      "year": 2001,
+      "romFormats": [
+        ".scummvm",
+        ".svm"
+      ]
+    },
+    {
+      "id": "sega32x",
+      "aliases": [
+        "Sega 32X",
+        "32X"
+      ],
+      "name": "Sega 32X",
+      "description": "Sega's 32-bit add-on for the Mega Drive/Genesis, designed to extend the life of the platform.",
+      "manufacturer": "Sega",
+      "year": 1994,
+      "romFormats": [
+        ".32x",
+        ".68k",
+        ".bin",
+        ".chd",
+        ".cue",
+        ".gen",
+        ".iso",
+        ".m3u",
+        ".md",
+        ".smd",
+        ".sms",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "segacd",
+      "aliases": [
+        "Sega CD",
+        "Mega-CD",
+        "Sega Mega-CD"
+      ],
+      "name": "Sega CD",
+      "description": "Sega's CD-ROM add-on for the Genesis, known as the Mega-CD in other regions.",
+      "manufacturer": "Sega",
+      "year": 1992,
+      "romFormats": [
+        ".68k",
+        ".bin",
+        ".bms",
+        ".chd",
+        ".cue",
+        ".gen",
+        ".gg",
+        ".iso",
+        ".m3u",
+        ".md",
+        ".mdx",
+        ".sg",
+        ".sgd",
+        ".smd",
+        ".sms",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "sg-1000",
+      "aliases": [
+        "SG-1000",
+        "Sega SG-1000"
+      ],
+      "name": "Sega SG-1000",
+      "description": "Sega's first home console, released in Japan on the same day as the Famicom.",
+      "manufacturer": "Sega",
+      "year": 1983,
+      "romFormats": [
+        ".68k",
+        ".bin",
+        ".bms",
+        ".chd",
+        ".cue",
+        ".gen",
+        ".gg",
+        ".iso",
+        ".m3u",
+        ".md",
+        ".mdx",
+        ".ri",
+        ".rom",
+        ".sg",
+        ".sgd",
+        ".smd",
+        ".sms",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "snes",
+      "aliases": [
+        "SNES",
+        "Super Nintendo",
+        "Super Famicom",
+        "SFC"
+      ],
+      "name": "Super Nintendo / Super Famicom",
+      "description": "Nintendo's Super Nintendo Entertainment System, a 16-bit console home to iconic RPGs, platformers, and fighting games.",
+      "manufacturer": "Nintendo",
+      "year": 1990,
+      "romFormats": [
+        ".bin",
+        ".bml",
+        ".dx2",
+        ".fig",
+        ".gd3",
+        ".gd7",
+        ".mgd",
+        ".sfc",
+        ".smc",
+        ".st",
+        ".swc",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "switch",
+      "aliases": [
+        "Nintendo Switch",
+        "Switch",
+        "NSW",
+        "NX"
+      ],
+      "name": "Nintendo Switch",
+      "description": "Nintendo's hybrid home and portable console featuring detachable Joy-Con controllers and a large game library.",
+      "manufacturer": "Nintendo",
+      "year": 2017,
+      "romFormats": [
+        ".lnk",
+        ".nca",
+        ".nro",
+        ".nso",
+        ".nsp",
+        ".xci"
+      ]
+    },
+    {
+      "id": "symbian",
+      "aliases": [
+        "Symbian",
+        "Symbian OS"
+      ],
+      "name": "Symbian",
+      "description": "Nokia's Symbian mobile operating system, which powered many smartphones in the early 2000s.",
+      "manufacturer": "Symbian Ltd.",
+      "year": 1998,
+      "romFormats": [
+        ".sis",
+        ".sisx",
+        ".symbian"
+      ]
+    },
+    {
+      "id": "triforce",
+      "aliases": [
+        "Triforce",
+        "Namco-Sega-Nintendo Triforce"
+      ],
+      "name": "Namco-Sega-Nintendo Triforce",
+      "description": "A Sega, Nintendo, and Namco joint arcade board based on GameCube hardware, used in games like Mario Kart Arcade GP.",
+      "manufacturer": "Sega / Nintendo / Namco",
+      "year": 2002,
+      "romFormats": [
+        ".ciso",
+        ".dff",
+        ".dol",
+        ".elf",
+        ".gcm",
+        ".gcz",
+        ".iso",
+        ".json",
+        ".m3u",
+        ".rvz",
+        ".tgc",
+        ".wad",
+        ".wbfs",
+        ".wia",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "vic20",
+      "aliases": [
+        "VIC-20",
+        "Commodore VIC-20"
+      ],
+      "name": "Commodore VIC-20",
+      "description": "Commodore's VIC-20, the first home computer to sell one million units and a precursor to the Commodore 64.",
+      "manufacturer": "Commodore",
+      "year": 1980,
+      "romFormats": [
+        ".bin",
+        ".cmd",
+        ".crt",
+        ".d2m",
+        ".d4m",
+        ".d64",
+        ".d6z",
+        ".d71",
+        ".d7z",
+        ".d80",
+        ".d81",
+        ".d82",
+        ".d8z",
+        ".g41",
+        ".g4z",
+        ".g64",
+        ".g6z",
+        ".gz",
+        ".lnx",
+        ".m3u",
+        ".nbz",
+        ".nib",
+        ".p00",
+        ".prg",
+        ".t64",
+        ".tap",
+        ".vfl",
+        ".vsf",
+        ".x64",
+        ".x6z",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "virtualboy",
+      "aliases": [
+        "Virtual Boy",
+        "Nintendo Virtual Boy",
+        "VB"
+      ],
+      "name": "Nintendo Virtual Boy",
+      "description": "Nintendo's ill-fated stereoscopic 3D tabletop console, displaying monochrome red graphics.",
+      "manufacturer": "Nintendo",
+      "year": 1995,
+      "romFormats": [
+        ".bin",
+        ".vb",
+        ".vboy",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "wii",
+      "aliases": [
+        "Nintendo Wii",
+        "Wii"
+      ],
+      "name": "Nintendo Wii",
+      "description": "Nintendo's motion-controlled home console, notable for its innovative Wii Remote and massive mainstream appeal.",
+      "manufacturer": "Nintendo",
+      "year": 2006,
+      "romFormats": [
+        ".ciso",
+        ".dff",
+        ".dol",
+        ".elf",
+        ".gcm",
+        ".gcz",
+        ".iso",
+        ".json",
+        ".m3u",
+        ".rvz",
+        ".tgc",
+        ".wad",
+        ".wbfs",
+        ".wia",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "wiiu",
+      "aliases": [
+        "Nintendo Wii U",
+        "Wii U"
+      ],
+      "name": "Nintendo Wii U",
+      "description": "Nintendo's tablet-controller-equipped home console, featuring the GamePad with a built-in screen.",
+      "manufacturer": "Nintendo",
+      "year": 2012,
+      "romFormats": [
+        ".elf",
+        ".rpx",
+        ".tmd",
+        ".wua",
+        ".wud",
+        ".wuhb",
+        ".wux"
+      ]
+    },
+    {
+      "id": "wonderswan",
+      "aliases": [
+        "WonderSwan",
+        "Bandai WonderSwan"
+      ],
+      "name": "Bandai WonderSwan",
+      "description": "Bandai's monochrome handheld console designed by the creator of the Game Boy, Gunpei Yokoi.",
+      "manufacturer": "Bandai",
+      "year": 1999,
+      "romFormats": [
+        ".pc2",
+        ".ws",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "wonderswancolor",
+      "aliases": [
+        "WonderSwan Color",
+        "Bandai WonderSwan Color"
+      ],
+      "name": "Bandai WonderSwan Color",
+      "description": "Bandai's color upgrade to the WonderSwan handheld featuring a vibrant color screen.",
+      "manufacturer": "Bandai",
+      "year": 2000,
+      "romFormats": [
+        ".pc2",
+        ".ws",
+        ".wsc",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "x68000",
+      "aliases": [
+        "X68000",
+        "Sharp X68000"
+      ],
+      "name": "Sharp X68000",
+      "description": "Sharp's X68000, a powerful Japanese home computer beloved for near-perfect arcade ports.",
+      "manufacturer": "Sharp",
+      "year": 1987,
+      "romFormats": [
+        ".2hd",
+        ".88d",
+        ".cmd",
+        ".d88",
+        ".dim",
+        ".dup",
+        ".hdf",
+        ".hdm",
+        ".img",
+        ".m3u",
+        ".xdf",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "id": "xbox",
+      "aliases": [
+        "Xbox",
+        "Original Xbox",
+        "Microsoft Xbox"
+      ],
+      "name": "Microsoft Xbox",
+      "description": "Microsoft's original Xbox console, featuring a built-in hard drive and online gaming via Xbox Live.",
+      "manufacturer": "Microsoft",
+      "year": 2001,
+      "romFormats": [
+        ".iso",
+        ".xbe"
+      ]
+    },
+    {
+      "id": "xbox360",
+      "aliases": [
+        "Xbox 360",
+        "Xbox360",
+        "Microsoft Xbox 360",
+        "360"
+      ],
+      "name": "Microsoft Xbox 360",
+      "description": "Microsoft's seventh-generation console, home to Halo, Gears of War, and the modern Xbox Live service.",
+      "manufacturer": "Microsoft",
+      "year": 2005,
+      "romFormats": [
+        ".",
+        ".iso",
+        ".xex",
+        ".zar"
+      ]
+    },
+    {
+      "id": "zxspectrum",
+      "aliases": [
+        "ZX Spectrum",
+        "Sinclair ZX Spectrum",
+        "Spectrum"
+      ],
+      "name": "Sinclair ZX Spectrum",
+      "description": "Sinclair's iconic 8-bit home computer, a cornerstone of British gaming culture through the 1980s.",
+      "manufacturer": "Sinclair Research",
+      "year": 1982,
+      "romFormats": [
+        ".dsk",
+        ".gz",
+        ".img",
+        ".mgt",
+        ".rzx",
+        ".scl",
+        ".sh",
+        ".sna",
+        ".szx",
+        ".tap",
+        ".trd",
+        ".tzx",
+        ".udi",
+        ".z80",
+        ".7z",
+        ".zip"
+      ]
+    }
+  ]
+}
