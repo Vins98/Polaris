@@ -4,6 +4,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as p;
 import 'package:polaris/models/models.dart';
+import 'package:polaris/ui/common/file_picker.dart';
+import 'package:polaris/services/scan_service.dart';
+import 'package:polaris/services/screenscraper_service.dart';
+import 'package:polaris/ui/main/main_screen.dart';
 
 enum MatchType { exact, partial, none }
 
@@ -35,10 +39,21 @@ class _SetupWizardState extends State<SetupWizard> {
   final TextEditingController _pathController = TextEditingController();
   List<SystemModel> _systems = [];
   List<EmulatorModel> _emulators = [];
+
+  /// Callback to rebuild the scrape-progress dialog from within the scan
+  /// completion handler.
+  StateSetter? _updateScrapeDialog;
   int _step = 0;
   late String _browserHomePath;
   late String _browserCurrentPath;
   final Set<String> _browserSelectedPaths = <String>{};
+  // Only desktop platforms require configuring emulator executables
+  final bool _needsEmuConfig =
+      Platform.isWindows || Platform.isLinux || Platform.isMacOS;
+
+  // Controllers for emulator executable fields (keyed by system id)
+  final Map<String, TextEditingController> _execControllers = {};
+  final Map<String, TextEditingController> _updaterControllers = {};
 
   @override
   void initState() {
@@ -53,6 +68,12 @@ class _SetupWizardState extends State<SetupWizard> {
 
   @override
   void dispose() {
+    for (final c in _execControllers.values) {
+      c.dispose();
+    }
+    for (final c in _updaterControllers.values) {
+      c.dispose();
+    }
     _pathController.dispose();
     super.dispose();
   }
@@ -180,14 +201,53 @@ class _SetupWizardState extends State<SetupWizard> {
       );
       return;
     }
-    if (_step < 2) {
+    // If we are on the configure-emulators step, apply the pending values.
+    if (_needsEmuConfig && _step == 2) {
+      _applyEmulatorConfigAll();
+    }
+    if (_step < _maxStep()) {
       setState(() => _step += 1);
     }
   }
 
+  int _maxStep() => _needsEmuConfig ? 3 : 2;
+
   void _goToPreviousStep() {
     if (_step > 0) {
       setState(() => _step -= 1);
+    }
+  }
+
+  void _ensureControllersForSystem(String systemId) {
+    final emu = _emuSelections[systemId];
+    if (emu == null) return;
+    _execControllers.putIfAbsent(systemId, () {
+      final c = TextEditingController(text: emu.executable ?? '');
+      c.addListener(() {
+        if (mounted) setState(() {});
+      });
+      return c;
+    });
+    _updaterControllers.putIfAbsent(systemId, () {
+      final c = TextEditingController(text: emu.updaterExecutable ?? '');
+      c.addListener(() {
+        if (mounted) setState(() {});
+      });
+      return c;
+    });
+  }
+
+  void _applyEmulatorConfigAll() {
+    final systems = _selectedSystems();
+    for (final s in systems) {
+      if (_emuSelections[s.id] == null) continue;
+      _ensureControllersForSystem(s.id);
+      final exec = _execControllers[s.id]?.text.trim();
+      final upd = _updaterControllers[s.id]?.text.trim();
+      _emuSelections[s.id] = _emuSelections[s.id]!.copyWith(
+        executable: exec?.isEmpty ?? true ? null : exec,
+        updaterExecutable: upd?.isEmpty ?? true ? null : upd,
+      );
     }
   }
 
@@ -522,9 +582,166 @@ class _SetupWizardState extends State<SetupWizard> {
     await file.writeAsString(const JsonEncoder.withIndent('  ').convert(out));
     await File('data/setup_done').writeAsString('done');
     if (!mounted) return;
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(const SnackBar(content: Text('Setup saved')));
+
+    final messenger = ScaffoldMessenger.of(context);
+    final navigator = Navigator.of(context);
+
+    messenger.showSnackBar(const SnackBar(content: Text('Setup saved')));
+
+    // Show a blocking dialog while scanning runs.
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (ctx) => PopScope(
+       canPop: false,
+        child: AlertDialog(
+          content: Row(
+            children: const [
+              SizedBox(
+                width: 24,
+                height: 24,
+                child: CircularProgressIndicator(),
+              ),
+              SizedBox(width: 16),
+              Expanded(child: Text('Scanning ROMs, please wait...')),
+            ],
+          ),
+        ),
+      ),
+    );
+
+    // Start scanning in background; when complete, dismiss dialog and
+    // offer to scrape metadata from ScreenScraper.
+    ScanService.scanFromSetupResult()
+        .then((written) async {
+          // Dismiss scan progress dialog.
+          try {
+            navigator.pop();
+          } catch (_) {}
+
+          messenger.showSnackBar(
+            SnackBar(
+              content: Text('Scan complete: $written databases written'),
+            ),
+          );
+
+          // --- Scrape prompt ------------------------------------------------
+          if (!mounted) return;
+          // null = skip, true = metadata+images, false = metadata only
+          final scrapeChoice = await showDialog<bool>(
+            context: context,
+            barrierDismissible: false,
+            builder: (ctx) => AlertDialog(
+              title: const Text('Scrape Metadata'),
+              content: const Text(
+                'Do you want to download metadata and images for all ROMs '
+                'from ScreenScraper?\n\n'
+                'This may take a while depending on your library size.',
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(ctx).pop(),
+                  child: const Text('Skip'),
+                ),
+                OutlinedButton(
+                  onPressed: () => Navigator.of(ctx).pop(false),
+                  child: const Text('Metadata Only'),
+                ),
+                ElevatedButton(
+                  onPressed: () => Navigator.of(ctx).pop(true),
+                  child: const Text('Metadata + Images'),
+                ),
+              ],
+            ),
+          );
+
+          if (scrapeChoice != null && mounted) {
+            // Show scrape progress dialog.
+            var scrapeProgress = '';
+            var scrapeDone = 0;
+            var scrapeTotal = 0;
+
+            if (!mounted) return;
+            showDialog<void>(
+              context: context,
+              barrierDismissible: false,
+              builder: (ctx) => StatefulBuilder(
+                builder: (ctx, setScrapeState) {
+                  // Keep reference so we can update from outside.
+                  _updateScrapeDialog = setScrapeState;
+                  return PopScope(
+                    canPop: false,
+                    child: AlertDialog(
+                      title: const Text('Scraping Metadata…'),
+                      content: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const LinearProgressIndicator(),
+                          const SizedBox(height: 12),
+                          Text(
+                            scrapeTotal > 0
+                                ? '$scrapeDone / $scrapeTotal'
+                                : 'Starting…',
+                            style: Theme.of(ctx).textTheme.bodySmall,
+                          ),
+                          if (scrapeProgress.isNotEmpty) ...[
+                            const SizedBox(height: 4),
+                            Text(
+                              scrapeProgress,
+                              style: Theme.of(ctx).textTheme.bodySmall,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            );
+
+            try {
+              await ScreenscraperService.scrapeAllDatabases(
+                downloadImages: scrapeChoice,
+                onProgress: (done, total, gameName) {
+                  scrapeDone = done;
+                  scrapeTotal = total;
+                  scrapeProgress = gameName;
+                  _updateScrapeDialog?.call(() {});
+                },
+              );
+            } catch (e) {
+              messenger.showSnackBar(
+                SnackBar(content: Text('Scrape error: $e')),
+              );
+            }
+
+            // Dismiss scrape dialog.
+            try {
+              navigator.pop();
+            } catch (_) {}
+
+            messenger.showSnackBar(
+              const SnackBar(content: Text('Scraping complete')),
+            );
+          }
+          // -----------------------------------------------------------------
+
+          if (!mounted) return;
+          navigator.pushReplacement(
+            MaterialPageRoute(
+              builder: (_) => const MainScreen(),
+            ),
+          );
+        })
+        .catchError((e) {
+          try {
+            navigator.pop();
+          } catch (_) {}
+          messenger.showSnackBar(SnackBar(content: Text('Scan failed: $e')));
+        });
   }
 
   @override
@@ -574,18 +791,27 @@ class _SetupWizardState extends State<SetupWizard> {
   }
 
   Widget _buildStepHeader(BuildContext context) {
-    const titles = ['Folders', 'Emulators', 'Finish'];
-    const descriptions = [
-      'Choose your ROM directories.',
-      'Pick the emulator for each detected system.',
-      'Review and save the configuration.',
-    ];
+    final titles = _needsEmuConfig
+        ? ['Folders', 'Emulators', 'Configure emulators', 'Finish']
+        : ['Folders', 'Emulators', 'Finish'];
+    final descriptions = _needsEmuConfig
+        ? [
+            'Choose your ROM directories.',
+            'Pick the emulator for each detected system.',
+            'Configure emulator executables for desktop platforms.',
+            'Review and save the configuration.',
+          ]
+        : [
+            'Choose your ROM directories.',
+            'Pick the emulator for each detected system.',
+            'Review and save the configuration.',
+          ];
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Step ${_step + 1} of 3',
+          'Step ${_step + 1} of ${titles.length}',
           style: Theme.of(context).textTheme.labelLarge,
         ),
         const SizedBox(height: 8),
@@ -594,12 +820,14 @@ class _SetupWizardState extends State<SetupWizard> {
         Text(descriptions[_step], style: Theme.of(context).textTheme.bodyLarge),
         const SizedBox(height: 14),
         Row(
-          children: List.generate(3, (index) {
+          children: List.generate(titles.length, (index) {
             final active = index == _step;
             final complete = index < _step;
             return Expanded(
               child: Container(
-                margin: EdgeInsets.only(right: index == 2 ? 0 : 8),
+                margin: EdgeInsets.only(
+                  right: index == titles.length - 1 ? 0 : 8,
+                ),
                 height: 8,
                 decoration: BoxDecoration(
                   color: complete || active
@@ -629,6 +857,9 @@ class _SetupWizardState extends State<SetupWizard> {
         );
       case 1:
         return _buildEmulatorsStep(context);
+      case 2:
+        if (_needsEmuConfig) return _buildConfigureEmulatorsStep(context);
+        return _buildFinishStep(context);
       default:
         return _buildFinishStep(context);
     }
@@ -962,6 +1193,139 @@ class _SetupWizardState extends State<SetupWizard> {
     );
   }
 
+  Widget _buildConfigureEmulatorsStep(BuildContext context) {
+    final systems = _selectedSystems();
+
+    if (systems.isEmpty) {
+      return Card(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: const Center(
+            child: Text('No systems assigned. Go back and assign systems.'),
+          ),
+        ),
+      );
+    }
+
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: ListView(
+          children: systems.map((s) {
+            final emu = _emuSelections[s.id];
+            if (emu == null) {
+              return Card(
+                child: ListTile(
+                  title: Text(s.name),
+                  subtitle: Text(s.id),
+                  trailing: FilledButton(
+                    onPressed: () => setState(() => _step = 1),
+                    child: const Text('Select emulator'),
+                  ),
+                ),
+              );
+            }
+
+            _ensureControllersForSystem(s.id);
+
+            final execText = _execControllers[s.id]?.text ?? '';
+            final execPath = execText.trim().isEmpty
+                ? (emu.executable ?? '')
+                : execText.trim();
+            final execExists =
+                execPath.isNotEmpty && File(execPath).existsSync();
+
+            return Card(
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ListTile(title: Text(emu.name), subtitle: Text(s.id)),
+                    const SizedBox(height: 8),
+                    Text(
+                      'Executable',
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
+                    const SizedBox(height: 6),
+                    TextField(
+                      controller: _execControllers[s.id],
+                      decoration: InputDecoration(
+                        hintText: 'Path to emulator executable',
+                        errorText: execText.isEmpty
+                            ? null
+                            : (execExists ? null : 'File not found'),
+                        suffixIcon: IconButton(
+                          icon: const Icon(Icons.folder_open),
+                          onPressed: () async {
+                            final init = execPath.isNotEmpty
+                                ? execPath
+                                : _browserHomePath;
+                            final picked = await showFilePicker(
+                              context,
+                              initialPath: init,
+                            );
+                            if (picked != null) {
+                              setState(
+                                () => _execControllers[s.id]!.text = picked,
+                              );
+                            }
+                          },
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Text(
+                      'Updater executable (optional)',
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
+                    const SizedBox(height: 6),
+                    TextField(
+                      controller: _updaterControllers[s.id],
+                      decoration: InputDecoration(
+                        hintText: 'Path to updater executable (optional)',
+                        suffixIcon: IconButton(
+                          icon: const Icon(Icons.folder_open),
+                          onPressed: () async {
+                            final init =
+                                _updaterControllers[s.id]?.text.isNotEmpty ??
+                                    false
+                                ? _updaterControllers[s.id]!.text
+                                : _browserHomePath;
+                            final picked = await showFilePicker(
+                              context,
+                              initialPath: init,
+                            );
+                            if (picked != null) {
+                              setState(
+                                () => _updaterControllers[s.id]!.text = picked,
+                              );
+                            }
+                          },
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    if (!execExists)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(
+                          'Executable must be a valid file for this system to continue.',
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.error,
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
+
   Widget _buildFinishStep(BuildContext context) {
     final systems = _selectedSystems();
     return Card(
@@ -998,9 +1362,14 @@ class _SetupWizardState extends State<SetupWizard> {
 
   Widget _buildStepActions() {
     final hasUnmatched = _folders.any((f) => f.match == MatchType.none);
-    final canContinue = _step == 0
-        ? (_folders.isNotEmpty && !hasUnmatched)
-        : true;
+    bool canContinue;
+    if (_step == 0) {
+      canContinue = _folders.isNotEmpty && !hasUnmatched;
+    } else if (_needsEmuConfig && _step == 2) {
+      canContinue = _areAllEmulatorExecutablesValid();
+    } else {
+      canContinue = true;
+    }
     return Row(
       children: [
         if (_step > 0)
@@ -1009,12 +1378,32 @@ class _SetupWizardState extends State<SetupWizard> {
             child: const Text('Back'),
           ),
         const Spacer(),
-        if (_step < 2)
+        if (_step < _maxStep())
           FilledButton(
             onPressed: canContinue ? _goToNextStep : null,
             child: const Text('Continue'),
           ),
       ],
     );
+  }
+
+  bool _areAllEmulatorExecutablesValid() {
+    final systems = _selectedSystems();
+    if (systems.isEmpty) return false;
+    for (final s in systems) {
+      final emu = _emuSelections[s.id];
+      if (emu == null) return false;
+      final textVal = _execControllers[s.id]?.text.trim();
+      final execPath = (textVal != null && textVal.isNotEmpty)
+          ? textVal
+          : (emu.executable ?? '');
+      if (execPath.isEmpty) return false;
+      try {
+        if (!File(execPath).existsSync()) return false;
+      } catch (_) {
+        return false;
+      }
+    }
+    return true;
   }
 }

@@ -48,3 +48,5 @@ app.*.map.json
 # Ignore setup generated files and logs
 data/setup*
 data/update_log.json
+data/game_databases/*
+data/images/*

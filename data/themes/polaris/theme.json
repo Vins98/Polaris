@@ -1,0 +1,36 @@
+{
+  "id": "polaris",
+  "name": "Polaris",
+  "author": "Polaris",
+  "version": "1.0",
+  "colors": {
+    "background": "#0D0D0D",
+    "card": "#1A1A2E",
+    "accent": "#7B61FF",
+    "textPrimary": "#F0F0F0",
+    "textSecondary": "#888888",
+    "cardBorderActive": "#7B61FF"
+  },
+  "viewMode": "carousel",
+  "animation": {
+    "preset": "fade_scale",
+    "duration": 300,
+    "curve": "easeOutCubic"
+  },
+  "systemsScreen": {
+    "showDescription": false,
+    "showYear": true,
+    "showManufacturer": true,
+    "showGameCount": true
+  },
+  "gamesScreen": {
+    "showDescription": true,
+    "showYear": true,
+    "showDeveloper": true,
+    "showPublisher": false,
+    "showRating": true,
+    "showGenre": true,
+    "showPlayers": false,
+    "artworkType": "box2d"
+  }
+}

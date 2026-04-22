@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:polaris/ui/setup/setup_wizard.dart';
 import 'package:polaris/ui/update/update_screen.dart';
+import 'package:polaris/services/scan_service.dart';
+import 'package:polaris/ui/main/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -76,8 +78,7 @@ class _SetupLauncherState extends State<SetupLauncher> {
     final exists = await f.exists();
     setState(() {
       _done = exists;
-      // if update config was present and setup not done, we'll show UpdateScreen
-      if (owner != null && repo != null && !exists) {
+      if (owner != null && repo != null) {
         _updateOwner = owner;
         _updateRepo = repo;
         _updateBranch = branch;
@@ -90,27 +91,36 @@ class _SetupLauncherState extends State<SetupLauncher> {
     if (_done == null) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
+    if (_updateOwner != null && _updateRepo != null) {
+      return UpdateScreen(
+        owner: _updateOwner!,
+        repo: _updateRepo!,
+        branch: _updateBranch,
+        onComplete: (summary) {
+          setState(() {
+            _updateOwner = null;
+            _updateRepo = null;
+            _updateBranch = 'main';
+          });
+
+          final messenger = ScaffoldMessenger.of(context);
+          ScanService.scanFromSetupResult().then((written) {
+            messenger.showSnackBar(
+              SnackBar(content: Text('Scan complete: $written databases written')),
+            );
+          }).catchError((e) {
+            messenger.showSnackBar(
+              SnackBar(content: Text('Scan failed: $e')),
+            );
+          });
+        },
+      );
+    }
+
     if (_done == false) {
-      if (_updateOwner != null && _updateRepo != null) {
-        return UpdateScreen(
-          owner: _updateOwner!,
-          repo: _updateRepo!,
-          branch: _updateBranch,
-          onComplete: (summary) {
-            // after updater completes, proceed to setup
-            setState(() {
-              _updateOwner = null;
-              _updateRepo = null;
-              _updateBranch = 'main';
-            });
-          },
-        );
-      }
       return const SetupWizard();
     }
 
-    return const Scaffold(
-      body: Center(child: Text('Polaris is ready. (Main UI placeholder)')),
-    );
+    return const MainScreen();
   }
 }

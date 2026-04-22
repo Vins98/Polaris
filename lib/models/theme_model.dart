@@ -330,3 +330,211 @@ class ThemeModel {
   @override
   String toString() => 'ThemeModel(id: $id, name: $name)';
 }
+
+// =============================================================================
+// PolarisThemeConfig — the runtime theme format used by the UI
+// =============================================================================
+
+/// Preset animation identifiers supported by all view modes.
+/// Themes declare one of these; optional duration/curve fields override defaults.
+const List<String> kAnimationPresets = [
+  'fade_scale',  // fade + scale from center
+  'slide_fade',  // slide in from right + fade
+  'slide_up',    // slide up from bottom
+  'zoom',        // zoom from previous position
+  'none',        // instant, no animation
+];
+
+class ThemeAnimationConfig {
+  /// One of [kAnimationPresets].
+  final String preset;
+
+  /// Override transition duration in milliseconds. Null → use preset default.
+  final int? duration;
+
+  /// Flutter [Curves] name, e.g. "easeOutCubic". Null → use preset default.
+  final String? curve;
+
+  const ThemeAnimationConfig({
+    this.preset = 'fade_scale',
+    this.duration,
+    this.curve,
+  });
+
+  Map<String, dynamic> toJson() => {
+        'preset': preset,
+        if (duration != null) 'duration': duration,
+        if (curve != null) 'curve': curve,
+      };
+
+  factory ThemeAnimationConfig.fromJson(Map<String, dynamic>? json) {
+    if (json == null) return const ThemeAnimationConfig();
+    return ThemeAnimationConfig(
+      preset: json['preset'] as String? ?? 'fade_scale',
+      duration: json['duration'] as int?,
+      curve: json['curve'] as String?,
+    );
+  }
+}
+
+class SystemsScreenConfig {
+  final bool showDescription;
+  final bool showYear;
+  final bool showManufacturer;
+  final bool showGameCount;
+
+  const SystemsScreenConfig({
+    this.showDescription = false,
+    this.showYear = true,
+    this.showManufacturer = true,
+    this.showGameCount = true,
+  });
+
+  Map<String, dynamic> toJson() => {
+        'showDescription': showDescription,
+        'showYear': showYear,
+        'showManufacturer': showManufacturer,
+        'showGameCount': showGameCount,
+      };
+
+  factory SystemsScreenConfig.fromJson(Map<String, dynamic>? json) {
+    if (json == null) return const SystemsScreenConfig();
+    return SystemsScreenConfig(
+      showDescription: json['showDescription'] as bool? ?? false,
+      showYear: json['showYear'] as bool? ?? true,
+      showManufacturer: json['showManufacturer'] as bool? ?? true,
+      showGameCount: json['showGameCount'] as bool? ?? true,
+    );
+  }
+}
+
+class GamesScreenConfig {
+  final bool showDescription;
+  final bool showYear;
+  final bool showDeveloper;
+  final bool showPublisher;
+  final bool showRating;
+  final bool showGenre;
+  final bool showPlayers;
+
+  /// Which artwork image to show per game.
+  /// Valid values: "box2d" | "fanart" | "screenshot" | "wheel"
+  final String artworkType;
+
+  const GamesScreenConfig({
+    this.showDescription = true,
+    this.showYear = true,
+    this.showDeveloper = true,
+    this.showPublisher = false,
+    this.showRating = true,
+    this.showGenre = true,
+    this.showPlayers = false,
+    this.artworkType = 'box2d',
+  });
+
+  Map<String, dynamic> toJson() => {
+        'showDescription': showDescription,
+        'showYear': showYear,
+        'showDeveloper': showDeveloper,
+        'showPublisher': showPublisher,
+        'showRating': showRating,
+        'showGenre': showGenre,
+        'showPlayers': showPlayers,
+        'artworkType': artworkType,
+      };
+
+  factory GamesScreenConfig.fromJson(Map<String, dynamic>? json) {
+    if (json == null) return const GamesScreenConfig();
+    return GamesScreenConfig(
+      showDescription: json['showDescription'] as bool? ?? true,
+      showYear: json['showYear'] as bool? ?? true,
+      showDeveloper: json['showDeveloper'] as bool? ?? true,
+      showPublisher: json['showPublisher'] as bool? ?? false,
+      showRating: json['showRating'] as bool? ?? true,
+      showGenre: json['showGenre'] as bool? ?? true,
+      showPlayers: json['showPlayers'] as bool? ?? false,
+      artworkType: json['artworkType'] as String? ?? 'box2d',
+    );
+  }
+}
+
+/// The runtime theme configuration parsed from `data/themes/<id>/theme.json`.
+class PolarisThemeConfig {
+  final String id;
+  final String name;
+  final String? author;
+  final String? version;
+
+  /// Raw hex color map. Keys: background, card, accent, textPrimary,
+  /// textSecondary, cardBorderActive.
+  final Map<String, String> colors;
+
+  /// "carousel" | "list" | "xmb"
+  final String viewMode;
+
+  final ThemeAnimationConfig animation;
+  final SystemsScreenConfig systemsScreen;
+  final GamesScreenConfig gamesScreen;
+
+  /// Absolute path to the theme directory (set by ThemeService after loading).
+  final String themeDir;
+
+  const PolarisThemeConfig({
+    required this.id,
+    required this.name,
+    this.author,
+    this.version,
+    required this.colors,
+    this.viewMode = 'carousel',
+    this.animation = const ThemeAnimationConfig(),
+    this.systemsScreen = const SystemsScreenConfig(),
+    this.gamesScreen = const GamesScreenConfig(),
+    required this.themeDir,
+  });
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'author': author,
+        'version': version,
+        'colors': colors,
+        'viewMode': viewMode,
+        'animation': animation.toJson(),
+        'systemsScreen': systemsScreen.toJson(),
+        'gamesScreen': gamesScreen.toJson(),
+      };
+
+  factory PolarisThemeConfig.fromJson(
+    Map<String, dynamic> json, {
+    required String themeDir,
+  }) {
+    return PolarisThemeConfig(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      author: json['author'] as String?,
+      version: json['version'] as String?,
+      colors: (json['colors'] as Map?)?.cast<String, String>() ?? {},
+      viewMode: json['viewMode'] as String? ?? 'carousel',
+      animation: ThemeAnimationConfig.fromJson(
+          json['animation'] as Map<String, dynamic>?),
+      systemsScreen: SystemsScreenConfig.fromJson(
+          json['systemsScreen'] as Map<String, dynamic>?),
+      gamesScreen: GamesScreenConfig.fromJson(
+          json['gamesScreen'] as Map<String, dynamic>?),
+      themeDir: themeDir,
+    );
+  }
+
+  factory PolarisThemeConfig.fromJsonString(
+    String jsonStr, {
+    required String themeDir,
+  }) =>
+      PolarisThemeConfig.fromJson(
+        json.decode(jsonStr) as Map<String, dynamic>,
+        themeDir: themeDir,
+      );
+
+  @override
+  String toString() => 'PolarisThemeConfig(id: $id, viewMode: $viewMode)';
+}
+
